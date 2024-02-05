@@ -28,4 +28,4 @@ jobs:
                     uses: docker/build-push-action@v5
                     with:
                       push: true
-                      tags: karthi659/example_docker_repo:latest    
+                      tags: karthi659/karthi.flask.app:two    
