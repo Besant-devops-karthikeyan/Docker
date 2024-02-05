@@ -1,0 +1,31 @@
+name: Docker Deployment
+
+on:
+    push:
+        branches:
+            - 'main'
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            -
+                name: Checkout
+                uses: actions/checkout@v4
+            -
+                name: Set up QEMU
+                uses: docker/setup-qemu-action@v3
+            -
+                    name: Set up Docker Buildx
+                    uses: docker/setup-buildx-action@v3
+            -
+                    name: Login to Docker Hub
+                    uses: docker/login-action@v3
+                    with:
+                        username: karthi659
+                        password: dckr_pat_9Cf-8r4O00PvskBhD57qjtlgtVE
+            -
+                    name: Build and push
+                    uses: docker/build-push-action@v5
+                    with:
+                      push: true
+                      tags: karthi659/example_docker_repo:latest    
